@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="fileDataConversion.js"></script>
+</head>
+<body>
+    <input type="file" id="image" />
+    <img id="img">
+    <script>
+        document.querySelector("#image").addEventListener("change",function(event) {
+            [].forEach.call(event.target.files, function (file) {
+                var fileReader = new FileReader();
+                fileReader.addEventListener("load", function (event) {
+                     document.querySelector("#img").src=arrayBufferToDataURL(dataURLToArrayBuffer(event.target.result),file.type);
+                });
+                /*fileReader.readAsBinaryString(file);*/
+                fileReader.readAsDataURL(file);
+                /*fileReader.readAsArrayBuffer(file);*/
+            });
+        });
+    </script>
+</body>
+</html>
