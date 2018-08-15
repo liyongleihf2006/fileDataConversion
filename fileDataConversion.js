@@ -11,7 +11,7 @@ function binaryStringToDataURL(data,mimeType){
 * base64转化为二进制字符串
 * */
 function dataURLToBinaryString(data){
-    return window.atob(event.target.result.replace(/.*base64,/,""));
+    return window.atob(data.replace(/.*base64,/,""));
 };
 /*
 * 二进制数据缓冲区转化为二进制字符串
